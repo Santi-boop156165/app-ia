@@ -56,11 +56,10 @@ const imagesData = [
     formData.append('file', selectedFile);
 
     try {
-const res = await fetch('/api/proxy/predict', {
-  method: 'POST',
-  body: formData,
-});
-
+      const res = await fetch('https://fracture-api.52.201.253.226.sslip.io/predict', {
+        method: 'POST',
+        body: formData,
+      });
       const data = await res.json();
       setResult(data);
     } catch (error) {
