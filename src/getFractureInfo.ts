@@ -63,7 +63,7 @@ Si persisten síntomas como dolor, inflamación o pérdida de movilidad, acude a
 
   if (diagnosis.toLowerCase() === 'fractured' && bone === 'hand') {
     return `
-Se ha detectado una fractura en ${hotspot ? getHandZone(hotspot.x, hotspot.y) : 'una región de la mano'}.
+Se ha detectado una fractura en ${hotspot ? getHandZone(hotspot.y) : 'una región de la mano'}.
 
 🧠 ${getRandom(handGeneralInfo)}
 
@@ -84,7 +84,7 @@ Esta información es orientativa y no sustituye la valoración médica presencia
   return 'No se encontró información específica sobre este tipo de diagnóstico. Por favor consulta con un especialista.';
 }
 
-function getHandZone(x: number, y: number): string {
+function getHandZone( y: number): string {
   if (y < 100) return 'los dedos (falanges)';
   if (y >= 100 && y <= 200) return 'la palma de la mano';
   if (y > 200) return 'la zona de la muñeca';
